@@ -90,15 +90,18 @@ public class Agenda {
      * @param nombre
      */
     public void eliminarContacto(String nombre){
+        Contacto contactoEliminado = null;
         for (Contacto contacto : contactos) {
             if (contacto.getNombre().equalsIgnoreCase(nombre)){
-                contactos.remove(contacto);
-                System.out.println("Se elimino exitosamente.\n");
+                contactoEliminado = contacto;
+                break;
             }
-            else {
-                System.out.println("No se pudo eliminar el contacto, intente otra vez\n");
-            }
-            break;
+        }
+        if (contactos.remove(contactoEliminado)){
+            System.out.println("El contacto fue eliminado con exito\n");
+        }
+        else{
+            System.out.println("No se pudo eliminar el contacto.\n");
         }
     }
 
@@ -110,7 +113,7 @@ public class Agenda {
             System.out.println("La agenda esta llena\n");
         }
         else {
-            System.out.println("Puedes ingresar mas usuarios\n");
+            System.out.println("La agenda aun no está llena puedes ingresar mas contactos\n");
         }
     }
 
@@ -119,7 +122,7 @@ public class Agenda {
      */
     public void espaciosLibres(){
         if (contactos.size() < tamanioAgenda){
-            System.out.println("La agenda tiene " + (10-contactos.size()) + " espacios\n");
+            System.out.println("La agenda tiene " + (10-contactos.size()) + " espacios disponiblesn");
         }
         else {
             System.out.println("La agenda esta llena\n");
