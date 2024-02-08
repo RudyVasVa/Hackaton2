@@ -16,7 +16,7 @@ public class Main {
 
     public void imprimirPromedios() {
         System.out.println("Promedios de estudiantes:");
-        for (int i = 0; i < estudiantes.size(); i++) {
+        for (int i = 0; i < estudiantes.size(); i++) {  // No puede ser <= porque el tamaño de la lista no coincide con el indice entonces si busca al indice 5 no lo va a encontrar porque no existe
             Estudiante estudiante = estudiantes.get(i);
             double promedio = estudiante.calcularPromedio();
             System.out.println(estudiante.getNombre() + " " + estudiante.getApellido() + ": " + promedio);
@@ -45,7 +45,7 @@ public class Main {
             while (continuar) {
                 System.out.println("Ingrese una nota (o -1 para terminar):");
                 double nota = scanner.nextDouble();
-                scanner.nextLine();
+                scanner.nextLine();// Agregamos un salto de linea para permitir que la proxima entrada sea leida correctamente.
 
                 if (nota == -1) {
                     continuar = false;
@@ -79,7 +79,7 @@ class Estudiante {
 
     public double calcularPromedio() {
         double suma = 0.0;
-        for (int i = 0; i < notas.size(); i++) {
+        for (int i = 0; i < notas.size(); i++) {// No puede ser <= porque el tamaño de la lista no coincide con el indice entonces si busca al indice 5 no lo va a encontrar porque no existe
             suma += notas.get(i);
         }
         return suma / notas.size();
